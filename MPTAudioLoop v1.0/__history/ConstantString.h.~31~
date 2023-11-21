@@ -1,0 +1,83 @@
+﻿#ifndef ConstantStringH
+#define ConstantStringH
+//---------------------------------------------------------------------------
+//標題
+#define APP_TITLE "MPTAudio (ActionStar.)"
+//audio 參數
+#define buffer_size 4096
+#define sampledot 44100
+#define sampletime 0.00001
+//
+const double    PI=3.14159265;
+/*
+L OUT
+0.02583287
+0.02483301
+
+R OUT
+0.02539114
+0.02630399
+
+L IN
+0.02779156
+0.0247079
+
+R IN
+0.02734415
+0.02571953
+*/
+
+#define DUT_TO_HIPPO	  1
+#define HIPPO_TO_DUT	  2
+#define CHECK_L1K_R2K	  1
+#define CHECK_L1K_R1K	  2
+//
+#define NOT_FIND_DEV_AUDIO  -1
+
+#define WAIT_DEV_PLUGIN		1
+#define TEST_AUDIO			2
+#define WAVE_ANALYSIS       3
+#define TEST_AUDIO_2		4
+#define WAVE_ANALYSIS_2     5
+#define SHOW_RESULT			6
+#define WAIT_DEV_PLUGOUT    7
+#define AUDIO_ZOOM_IN_1		8
+#define AUDIO_ZOOM_OUT_1	9
+#define AUDIO_ZOOM_IN_2		10
+#define AUDIO_ZOOM_OUT_2	11
+#define CORRECT_VOLUME		12
+#define TEST_END			0
+//
+#define ERROR_WAVE_MIXING   -1
+#define ERROR_WAVE_MUTE     -2
+#define WAVE_FREQ_PASS      -3
+//
+#define STATUS_WAIT_TEST   1
+#define STATUS_TESTING     2
+#define STATUS_TEST_OVER   3
+
+#define WAVE_CREST_NUMBER_FAIL     	    1
+#define WAVE_CREST_NUMBER_PASS      	2
+
+#define WaveNote(Note1,Note2,Note2_Width) \
+		plWaveNote1->Caption = Note1; \
+		plWaveNote2->Caption = Note2; \
+		plWaveNote2->Width = Note2_Width;
+
+#define ShowResult(MSG,COL) \
+		plResult->Color = COL; \
+		plResult->Caption = MSG;
+
+#define DEBUG(MSG) \
+		if(frmMain->moDebug->Width>50) \
+		frmMain->moDebug->Lines->Add(MSG);
+
+
+//---------------------------------------------------------------------------
+//測試訊息
+
+
+
+#define MB_WARNING(handle, msg) MessageBox(handle, msg, MB_CAPTIONWARNING, MB_ICONWARNING)
+//---------------------------------------------------------------------------
+#endif

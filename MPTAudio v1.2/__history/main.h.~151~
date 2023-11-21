@@ -1,0 +1,239 @@
+//---------------------------------------------------------------------------
+
+#ifndef mainH
+#define mainH
+//---------------------------------------------------------------------------
+#include <Classes.hpp>
+#include <Controls.hpp>
+#include <StdCtrls.hpp>
+#include <Forms.hpp>
+#include <ComCtrls.hpp>
+#include <ExtCtrls.hpp>
+#include <mmsystem.h>
+#include <Buttons.hpp>
+
+#include "ConstantString.h"
+#include <jpeg.hpp>
+#include <fstream>
+#include <iostream>
+#include <string>
+
+//---------------------------------------------------------------------------
+class TfrmMain : public TForm
+{
+__published:	// IDE-managed Components
+	TTimer *Timer1;
+	TPanel *plHippo;
+	TPanel *Panel22;
+	TPanel *Panel7;
+	TPanel *Panel2;
+	TPanel *plResult;
+	TPanel *Panel16;
+	TPanel *Panel12;
+	TPanel *plDUT;
+	TPanel *Panel1;
+	TRadioButton *rb_One;
+	TRadioButton *rb_TwoB;
+	TPanel *Panel3;
+	TPanel *plFrmCbOutIn;
+	TComboBox *cbInput;
+	TComboBox *cbOutput;
+	TBitBtn *btnDUT;
+	TPanel *plWave;
+	TPanel *Panel8;
+	TPanel *Panel9;
+	TPanel *Panel4;
+	TPanel *Panel5;
+	TPanel *Panel6;
+	TPanel *Panel17;
+	TImage *Wave_View2;
+	TPanel *Panel18;
+	TPanel *Panel19;
+	TPanel *Panel20;
+	TPanel *Panel21;
+	TPanel *Panel23;
+	TPanel *plFFTSwitch;
+	TPanel *Panel25;
+	TPanel *Panel11;
+	TPanel *Panel27;
+	TImage *FFT_View1;
+	TImage *Wave_View1;
+	TPanel *plWaveData1;
+	TPanel *Panel26;
+	TPanel *Panel29;
+	TImage *FFT_View2;
+	TPanel *Panel31;
+	TPanel *Panel33;
+	TPanel *Panel28;
+	TPanel *Panel30;
+	TPanel *Panel34;
+	TPanel *plFreqL1;
+	TPanel *plCoordinateL1;
+	TPanel *plCoordinateR1;
+	TPanel *plFreqR1;
+	TPanel *Panel38;
+	TPanel *Panel39;
+	TPanel *Panel40;
+	TPanel *plCoordinateR2;
+	TPanel *plFreqR2;
+	TPanel *Panel43;
+	TPanel *Panel44;
+	TPanel *plFreqL2;
+	TPanel *plCoordinateL2;
+	TPanel *Panel13;
+	TPanel *Panel14;
+	TScrollBar *DUTScrollBar;
+	TPanel *plDUTVolume;
+	TPanel *Panel10;
+	TScrollBar *HippoScrollBar;
+	TPanel *plHippoVolume;
+	TBitBtn *btnTest;
+	TPanel *Panel15;
+	TPanel *Panel41;
+	TPanel *Panel42;
+	TPanel *Panel45;
+	TPanel *Panel46;
+	TPanel *Panel47;
+	TComboBox *cbOutputWAV;
+	TComboBox *cbInputWAV;
+	TBitBtn *btnResetDUT;
+	TPanel *Panel36;
+	TPanel *Panel37;
+	TPanel *Panel48;
+	TPanel *Panel51;
+	TPanel *Panel52;
+	TBitBtn *btnCorrectVolume;
+	TPanel *Panel53;
+	TPanel *Panel55;
+	TPanel *Panel49;
+	TPanel *plLVertex1;
+	TPanel *plRVertex1;
+	TPanel *Panel54;
+	TPanel *Panel57;
+	TPanel *Panel58;
+	TPanel *plNumCrestTitle;
+	TPanel *Panel60;
+	TPanel *Panel61;
+	TPanel *Panel62;
+	TPanel *Panel56;
+	TPanel *plLVertex2;
+	TPanel *Panel50;
+	TPanel *plRVertex2;
+	TPanel *Panel63;
+	TPanel *Panel64;
+	TPanel *Panel65;
+	TPanel *Panel66;
+	TPanel *plNumVrmsLTitle;
+	TPanel *plNumCrestR1;
+	TPanel *plNumCrestL1;
+	TPanel *plNumCrestL2;
+	TPanel *plNumCrestR2;
+	TPanel *plNumVrmsL1;
+	TPanel *plNumVrmsR1;
+	TPanel *plNumVrmsL2;
+	TPanel *plNumVrmsR2;
+	TPanel *plWaveSwitch;
+	TTimer *Timer2;
+	TImage *Image1;
+	TScrollBox *ScrollBox1;
+	TScrollBox *ScrollBox2;
+	TMemo *moDebug;
+	void __fastcall Timer1Timer(TObject *Sender);
+	void __fastcall btnDUTClick(TObject *Sender);
+	void __fastcall cbOutputMouseEnter(TObject *Sender);
+	void __fastcall cbInputMouseEnter(TObject *Sender);
+	void __fastcall DUTScrollBarChange(TObject *Sender);
+	void __fastcall btnTestClick(TObject *Sender);
+	void __fastcall btnResetDUTClick(TObject *Sender);
+	void __fastcall rb_TwoBClick(TObject *Sender);
+	void __fastcall btnCorrectVolumeClick(TObject *Sender);
+	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
+	void __fastcall plWaveSwitchClick(TObject *Sender);
+	void __fastcall plFFTSwitchClick(TObject *Sender);
+	void __fastcall Timer2Timer(TObject *Sender);
+	void __fastcall plResultDblClick(TObject *Sender);
+private:	// User declarations
+	bool CallCommand(AnsiString Command_line);
+	void __fastcall WndProc(TMessage &Message);
+	void __fastcall ProcessInput(void);
+	void Oscilloscopes(short *idata,TImage* Wave_View,DWORD dwMultiple);
+	bool PlayVoice(int tag,AnsiString AudioFile);
+	void Delay(ULONG iMilliSeconds);
+	void ClearWave(TImage* Wave_View);
+	bool FindHippoDev();
+	bool StartRecording(int tag);
+	void FindWAVFile();
+	AnsiString TfrmMain::Findfilemsg(AnsiString filename, AnsiString findmsg,
+		int rownum);
+	bool TfrmMain::ReadInISet();
+	void TfrmMain::SaveInISet();
+	void TfrmMain::UIEnabled(bool bEnable);
+	bool TfrmMain::VolumeCorrection();
+	DWORD TfrmMain::CrestVerify(bool bLeft,float freq);
+
+	char g_n_outputDevices, g_n_inputDevices;
+
+	HWAVEIN         hWaveIn;
+	WAVEHDR         *WaveBuffers;
+	WAVEFORMATEX    waveFormat;
+	// WaveOut
+	HWAVEOUT	    WaveOut; // 音頻輸出句柄
+	WAVEHDR		    WaveOutHeader;
+	char*		    WaveOutData;
+
+	short           *my_data;
+
+	//紀錄Audio裝置資訊
+	struct Audio_INFO
+	   {
+		   bool bPlugin;
+		   bool bPlugin2;
+		   int	In_DevCount;
+		   int	Out_DevCount;
+		   AnsiString In_DevName;
+		   AnsiString Out_DevName;
+	   };
+	struct Audio_INFO Hippo_DEV;
+	//
+
+	int FindDevWaveOutCount(AnsiString DevName);
+	int FindDevWaveInCount(AnsiString DevName);
+
+	WAVEOUTCAPS Wave_output;
+	WAVEINCAPS Wave_input;
+public:		// User declarations
+	//紀錄參數
+	struct Audio_PARM
+	   {
+			AnsiString AudioVolume;
+			int WaveNum;
+			int HippoVolume;
+			int DUTVolume;
+			int VolumeRange;
+			bool bStereo;
+			bool bAutoVolume;
+			bool bWaveInOver;
+			bool bError;
+			double dblCrest;
+			double dblFreq;
+			DWORD dwAudioVolumeHippo;
+			DWORD dwAudioVolumeDUT;
+			DWORD dwWAVE_LL_Vertex;
+			DWORD dwWAVE_UL_Vertex;
+			DWORD dwFFT_Vertex;
+			float dwLCrest; //去除warning
+			float dwRCrest; //
+			DWORD dwDelay;
+			DWORD dwBUFFER;
+			DWORD dwNumberOfTimes;
+			DWORD dwSetTimeOut;
+			DWORD dwTimeOut;
+			DWORD dwTotalFrames;
+	   };
+	struct Audio_PARM PAudio_PARM;
+	__fastcall TfrmMain(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TfrmMain *frmMain;
+//---------------------------------------------------------------------------
+#endif

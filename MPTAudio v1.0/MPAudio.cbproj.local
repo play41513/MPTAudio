@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2017/02/21 17:26:05.640.cpp,C:\Users\jim\Documents\RAD Studio\Projects\Unit2.cpp=C:\myCode\MPTAudio\main.cpp</Transaction>
+    <Transaction>2017/02/21 17:26:05.660.h,C:\Users\jim\Documents\RAD Studio\Projects\Unit2.h=C:\myCode\MPTAudio\main.h</Transaction>
+    <Transaction>2017/02/21 17:26:05.660.dfm,C:\Users\jim\Documents\RAD Studio\Projects\Unit2.dfm=C:\myCode\MPTAudio\main.dfm</Transaction>
+    <Transaction>2017/02/21 17:26:24.661.cbproj,C:\Users\jim\Documents\RAD Studio\Projects\Project1.cbproj=C:\Users\jim\Documents\RAD Studio\Projects\MPTAudio.cbproj</Transaction>
+    <Transaction>2017/02/21 17:26:37.941.cbproj,C:\Users\jim\Documents\RAD Studio\Projects\MPTAudio.cbproj=C:\myCode\MPTAudio\MPTAudio.cbproj</Transaction>
+    <Transaction>2019/04/24 15:37:38.244.cpp,D:\SourceCode\BCB\Hippo Audio Test\Hippo Audio Test v1.0.0\Unit1.cpp=D:\SourceCode\BCB\Hippo Audio Test\Hippo Audio Test v1.0.0\fft.cpp</Transaction>
+    <Transaction>2019/04/24 15:37:38.244.h,D:\SourceCode\BCB\Hippo Audio Test\Hippo Audio Test v1.0.0\Unit1.h=D:\SourceCode\BCB\Hippo Audio Test\Hippo Audio Test v1.0.0\fft.h</Transaction>
+    <Transaction>2019/04/24 15:45:01.705.cpp,D:\SourceCode\BCB\Hippo Audio Test\Hippo Audio Test v1.0.0\fft.cpp=D:\SourceCode\BCB\Hippo Audio Test\Hippo Audio Test v1.0.0\WaveAnalysis.cpp</Transaction>
+    <Transaction>2019/04/24 15:45:01.705.h,D:\SourceCode\BCB\Hippo Audio Test\Hippo Audio Test v1.0.0\fft.h=D:\SourceCode\BCB\Hippo Audio Test\Hippo Audio Test v1.0.0\WaveAnalysis.h</Transaction>
+    <Transaction>2019/05/21 08:39:09.085.cbproj,D:\SourceCode\BCB\Hippo Audio Test\Hippo Audio Test v1.0.0\MPTAudio.cbproj=D:\SourceCode\BCB\Hippo Audio Test\Hippo Audio Test v1.0.0\MPAudio.cbproj</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="MPAudio.cpp"/>
+    <File Path="WaveAnalysis.cpp"/>
+    <File Path="WaveAnalysis.cpp"/>
+    <File Path="WaveAnalysis.h"/>
+    <File Path="main.cpp"/>
+    <File Path="main.cpp"/>
+    <File Path="main.dfm"/>
+    <File Path="main.h"/>
+    <File Path="MPAudio.res"/>
+    <File Path="ConstantString.h"/>
+  </ProjectSortOrder>
+</BorlandProject>
